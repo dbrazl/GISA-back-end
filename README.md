@@ -1,6 +1,6 @@
 # GISA services
 
-This is the back-end monorepo aplication.
+This is the back-end monorepo application.
 Here we have all services os GISA like:
 
 - MIC
