@@ -9,9 +9,7 @@
     "serve": "concurrently \"tsc --watch\" \"nodemon -q dist/index.js\""
   },
   "dependencies": {
-    "@types/express-http-proxy": "^1.6.3",
     "express": "^4.17.3",
-    "express-http-proxy": "^1.6.3",
     "http-proxy-middleware": "^2.0.4"
   },
   "devDependencies": {
