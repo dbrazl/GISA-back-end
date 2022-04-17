@@ -49,6 +49,11 @@ routes.post('/MIC/associateds', micServiceProxy);
 routes.put('/MIC/associateds/:id', micServiceProxy);
 routes.delete('/MIC/associateds/:id', micServiceProxy);
 
+routes.get('/MIC/serviceProviders', micServiceProxy);
+routes.post('/MIC/serviceProviders', micServiceProxy);
+routes.put('/MIC/serviceProviders/:id', micServiceProxy);
+routes.delete('/MIC/serviceProviders/:id', micServiceProxy);
+
 routes.get('/api-gateway/health', async (req: Request, res: Response) => {
   return res.status(200).json();
 });

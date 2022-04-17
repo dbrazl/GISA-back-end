@@ -44,8 +44,12 @@ export type HealthInfo = {
   coverage: string[];
 }
 
-export type AssociatedResponse = {
+export type AssociatedIndexResponse = {
   data: AssociatedSGPS[];
+}
+
+export type AssociatedResponse = {
+  data: AssociatedSGPS;
 }
 
 export type AssociatedSGPS = {

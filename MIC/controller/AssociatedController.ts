@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
-import { Associated, AssociatedResponse, AssociatedSGPS } from "./models/Associated";
-import { sgpsAPI } from "./services/sgpsAPI";
+import { Associated, AssociatedResponse, AssociatedSGPS, AssociatedIndexResponse } from "../models/Associated";
+import { sgpsAPI } from "../services/sgpsAPI";
 
 export async function getAssociateds(request: Request, response: Response): Promise<Response> {
   try {
-    const { data }: AssociatedResponse = await sgpsAPI.get("/associateds");
+    const { data }: AssociatedIndexResponse = await sgpsAPI.get("/associateds");
     const associateds: Associated[] = data.map(
       (associated: AssociatedSGPS) => ({
         id: associated.id,
@@ -46,7 +46,7 @@ export async function postAssociated(request: Request, response: Response): Prom
       coverage: requested.healthInfo.coverage,
     };
 
-    const { data } = await sgpsAPI.post('/associateds', associated);
+    const { data }: AssociatedResponse = await sgpsAPI.post('/associateds', associated);
     return response.status(201).json(data);
   } catch (error) {
     return response.status(500).json(error);
@@ -72,7 +72,7 @@ export async function putAssociated(request: Request, response: Response): Promi
       coverage: requested.healthInfo.coverage,
     };
 
-    const { data } = await sgpsAPI.put(`/associateds/${id}`, associated);
+    const { data }: AssociatedResponse = await sgpsAPI.put(`/associateds/${id}`, associated);
     return response.status(200).json(data);
   } catch (error) {
     return response.status(500).json(error);
