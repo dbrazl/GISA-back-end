@@ -17,28 +17,28 @@ const urls_1 = __importDefault(require("./urls"));
 const { createProxyMiddleware } = require('http-proxy-middleware');
 const routes = (0, express_1.Router)();
 const micServiceProxy = createProxyMiddleware({
-    target: `${urls_1.default.MIC_SERVICE.MIC_URL}/${urls_1.default.MIC_SERVICE.MIC_VERSION}`,
+    target: `${urls_1.default.MIC_SERVICE.URL}/${urls_1.default.MIC_SERVICE.VERSION}`,
     changeOrigin: true,
     pathRewrite: {
         [`^/service`]: '',
     },
 });
 const mcdServiceProxy = createProxyMiddleware({
-    target: `${urls_1.default.MCD_SERVICE.MCD_URL}/${urls_1.default.MCD_SERVICE.MCD_VERSION}`,
+    target: `${urls_1.default.MCD_SERVICE.URL}/${urls_1.default.MCD_SERVICE.VERSION}`,
     changeOrigin: true,
     pathRewrite: {
         [`^/service`]: '',
     },
 });
 const msaServiceProxy = createProxyMiddleware({
-    target: `${urls_1.default.MSA_SERVICE.MSA_URL}/${urls_1.default.MSA_SERVICE.MSA_VERSION}`,
+    target: `${urls_1.default.MSA_SERVICE.URL}/${urls_1.default.MSA_SERVICE.VERSION}`,
     changeOrigin: true,
     pathRewrite: {
         [`^/service`]: '',
     },
 });
 const mgeServiceProxy = createProxyMiddleware({
-    target: `${urls_1.default.MGE_SERVICE.MGE_URL}/${urls_1.default.MGE_SERVICE.MGE_VERSION}`,
+    target: `${urls_1.default.MGE_SERVICE.URL}/${urls_1.default.MGE_SERVICE.VERSION}`,
     changeOrigin: true,
     pathRewrite: {
         [`^/service`]: '',
@@ -49,6 +49,10 @@ routes.get('/MIC/health', micServiceProxy);
 routes.get('/MCD/health', mcdServiceProxy);
 routes.get('/MSA/health', msaServiceProxy);
 routes.get('/MGE/health', mgeServiceProxy);
+routes.get('/MIC/associateds', micServiceProxy);
+routes.post('/MIC/associateds', micServiceProxy);
+routes.put('/MIC/associateds/:id', micServiceProxy);
+routes.delete('/MIC/associateds/:id', micServiceProxy);
 routes.get('/api-gateway/health', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     return res.status(200).json();
 }));

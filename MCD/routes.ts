@@ -1,6 +1,5 @@
 import { Router, Request, Response } from "express";
 
-
 const routes: Router = Router();
 
 routes.get('/health', async (req: Request, res: Response) => {

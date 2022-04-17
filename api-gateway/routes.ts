@@ -44,6 +44,11 @@ routes.get('/MCD/health', mcdServiceProxy);
 routes.get('/MSA/health', msaServiceProxy);
 routes.get('/MGE/health', mgeServiceProxy);
 
+routes.get('/MIC/associateds', micServiceProxy);
+routes.post('/MIC/associateds', micServiceProxy);
+routes.put('/MIC/associateds/:id', micServiceProxy);
+routes.delete('/MIC/associateds/:id', micServiceProxy);
+
 routes.get('/api-gateway/health', async (req: Request, res: Response) => {
   return res.status(200).json();
 });
