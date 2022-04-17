@@ -9,6 +9,7 @@
     "server": "concurrently \"tsc --watch\" \"nodemon -q dist/index.js\""
   },
   "dependencies": {
+    "axios": "^0.26.1",
     "express": "^4.17.3"
   },
   "devDependencies": {
