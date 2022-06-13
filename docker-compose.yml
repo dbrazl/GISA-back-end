@@ -1,0 +1,22 @@
+version: "3"
+services:
+  sgps:
+    image: danielbraz/sgps
+    ports:
+      - "5001:5001"
+    networks:
+      - app-network
+
+  mic:
+    build: ./MIC
+    command: node ./dist/index.js
+    ports:
+      - "3001:3001"
+    networks:
+      - app-network
+    expose:
+      - 3001
+
+networks:
+  app-network:
+    driver: bridge

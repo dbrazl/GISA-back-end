@@ -14,6 +14,4 @@ COPY --chown=node:node . .
 
 USER node
 
-EXPOSE 3001
-
 CMD [ "node", "dist/index.js" ]

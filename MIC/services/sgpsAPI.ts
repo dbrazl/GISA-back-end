@@ -1,7 +1,7 @@
-import axios from 'axios';
+// import axios from 'axios';
 
-const SGPS_URL: string = 'http://localhost:5001';
+// const SGPS_URL: string = 'http://sgps:5001';
 
-export const sgpsAPI = axios.create({
-  baseURL: SGPS_URL,
-});
+// export const sgpsAPI = axios.create({
+//   baseURL: SGPS_URL,
+// });
